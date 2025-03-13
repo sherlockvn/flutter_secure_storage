@@ -20,7 +20,6 @@ enum KeyCipherAlgorithm {
 }
 
 enum StorageCipherAlgorithm {
-    AES_CBC_PKCS7Padding(StorageCipher18Implementation::new, 1),
     @SuppressWarnings({"UnusedDeclaration"})
     AES_GCM_NoPadding(StorageCipherGCMImplementation::new, Build.VERSION_CODES.M);
     final StorageCipherFunction storageCipher;
@@ -47,7 +46,7 @@ public class StorageCipherFactory {
     private static final String ELEMENT_PREFERENCES_ALGORITHM_KEY = ELEMENT_PREFERENCES_ALGORITHM_PREFIX + "Key";
     private static final String ELEMENT_PREFERENCES_ALGORITHM_STORAGE = ELEMENT_PREFERENCES_ALGORITHM_PREFIX + "Storage";
     private static final KeyCipherAlgorithm DEFAULT_KEY_ALGORITHM = KeyCipherAlgorithm.RSA_ECB_PKCS1Padding;
-    private static final StorageCipherAlgorithm DEFAULT_STORAGE_ALGORITHM = StorageCipherAlgorithm.AES_CBC_PKCS7Padding;
+    private static final StorageCipherAlgorithm DEFAULT_STORAGE_ALGORITHM = StorageCipherAlgorithm.AES_GCM_NoPadding;
 
     private final KeyCipherAlgorithm savedKeyAlgorithm;
     private final StorageCipherAlgorithm savedStorageAlgorithm;
